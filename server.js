@@ -1,7 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const dotenv = require('dotenv').config();
-const port = 3000;
+const port = 3001;
 
 // connexion à la DB base de données
 connectDB();
@@ -35,6 +35,7 @@ app.use("/children", require("./routes/children.routes"));
 app.use("/home", require("./routes/accueil.routes"));
 app.use("/basket", require("./routes/basket.routes"));
 app.use("/formulaires", require('./routes/formulaire.routes'));
+app.use("/t-shirt", require("./routes/tshirt.routes"));
 
 // Lancer le serveur
 app.listen(port, () => console.log("Le serveur à démarré au port " + port));
