@@ -1,4 +1,4 @@
-const PostModel = require("../models/tshirt.model");
+const PostModel = require("../models/subscribe.model");
 
 module.exports.getPost = async (req, res) => {
     const posts = await PostModel.find();
@@ -21,16 +21,13 @@ module.exports.getProductById = async (req, res) => {
     }
 };
 
-module.exports.setPost = async (req, res) => {
+module.exports.setPostSubscribe = async (req, res) => {
     if (!req.body.message) {
-        res.status(400).json({ message: "Merci d'ajouter un message" })
+        res.status(400).json({ message: "Merci d'ajouter un message" });
     }
 
     const post = await PostModel.create({
-        nom: req.body.nom,
-        prix: req.body.prix,
-        imageUrl: req.body.imageUrl,
-        description: req.body.description,
+        email: req.body.email,
         message: req.body.message
     })
     res.status(200).json(post);
@@ -40,7 +37,7 @@ module.exports.editPost = async (req, res) => {
     const post = await PostModel.findById(req.params.id);
 
     if (!post) {
-        res.status(400).json({ message: "Ce produit n'existe pas" });
+        res.status(400).json({ message: "Ce mail n'existe pas" });
     }
 
     const updatePost = await PostModel.findByIdAndUpdate(

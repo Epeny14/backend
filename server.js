@@ -1,6 +1,9 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const dotenv = require('dotenv').config();
+// const nodemailer = require('nodemailer');
+// const cors = require('cors');
+// const mongoose = require('mongoose');
 const port = 3001;
 
 // connexion à la DB base de données
@@ -36,6 +39,12 @@ app.use("/home", require("./routes/accueil.routes"));
 app.use("/basket", require("./routes/basket.routes"));
 app.use("/formulaires", require('./routes/formulaire.routes'));
 app.use("/t-shirt", require("./routes/tshirt.routes"));
+app.use("/newsletter", require("./routes/subscribe.routes"));
 
 // Lancer le serveur
 app.listen(port, () => console.log("Le serveur à démarré au port " + port));
+
+
+
+
+

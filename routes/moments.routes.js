@@ -1,8 +1,9 @@
 const express = require('express');
-const { getPost, setPost, editPost, deletePosts, likePosts, dislikePosts } = require('../controllers/moment.controller');
+const { getPost, setPost, editPost, deletePosts, likePosts, dislikePosts, getProductById } = require('../controllers/moment.controller');
 const router = express.Router();
 
 router.get("/", getPost);
+router.get("/:id", getProductById);
 router.post("/", setPost);
 router.put("/:id", editPost);
 router.delete("/:id", deletePosts);

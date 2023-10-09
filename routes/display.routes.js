@@ -1,9 +1,10 @@
 const express = require('express');
-const { getPost, setPost, editPost, deletePost, likePost, dislikePost } = require('../controllers/display.controller');
+const { getPost, setPost, editPost, deletePost, likePost, dislikePost, getProductById } = require('../controllers/display.controller');
 
 const router = express.Router();
 
 router.get("/", getPost);
+router.get("/:id", getProductById);
 router.post("/", setPost);
 router.put("/:id", editPost);
 router.delete("/:id", deletePost);

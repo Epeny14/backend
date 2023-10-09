@@ -5,6 +5,23 @@ module.exports.getPost = async (req, res) => {
     res.status(200).json(posts);
 }
 
+module.exports.getProductById = async (req, res) => {
+    try {
+        const produitId = req.params.id;
+        const produit = await PostModel.findById(produitId);
+
+        if (!produit) {
+            return res.status(404).json({ message: 'Le produit non trouvé' });
+        }
+        res.json(produit);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur lors de la récupération d\'un produit' });
+    }
+};
+
+
 module.exports.setPost = async (req, res) => {
     if (!req.body.message) {
         res.status(400).json({ message: "Merci d'ajouter un message" });
