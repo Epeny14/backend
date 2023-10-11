@@ -40,6 +40,8 @@ app.use("/basket", require("./routes/basket.routes"));
 app.use("/formulaires", require('./routes/formulaire.routes'));
 app.use("/t-shirt", require("./routes/tshirt.routes"));
 app.use("/newsletter", require("./routes/subscribe.routes"));
+app.use("/nike-zoom-react", require("./routes/nike.routes"));
+app.use("/nike-zoom", require("./routes/sneakers.routes"));
 
 // Lancer le serveur
 app.listen(port, () => console.log("Le serveur à démarré au port " + port));
